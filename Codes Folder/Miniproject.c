@@ -91,3 +91,29 @@ void fand(int a, int b, int *r) {
     int y = (b != 0);
     *r = (x && y) ? 1 : 0;
 }
+
+void soma (int a, int b, int *r){
+    *r = a + b;
+}
+
+void shiftDireita(int a, int b, int *r) {
+    *r = a >> b;
+}
+
+void produtorio(int a, int b, long long int *r){
+    int n;
+    long long int produto;
+
+    produto = 1;
+
+    for (n = a; n <= b; n++){
+        produto *= n;
+    }
+
+    *r = produto;
+}
+
+void maiorIgual(int a, int b, int *maiorIgual) {
+    if (a >= b) *maiorIgual = 1;
+    else *maiorIgual = 0;
+} 
