@@ -1,119 +1,189 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void division(int a, int b, double *div); // Função 4 - Renato
-void maximum(int a, int b, int *max); // Função 17 - Renato
-void absolute(int x, int *abs); // Função 18 - Renato
-void menorOuIgual(int a, int b, int *menorouigual); // Função 24 - Renato
-void menorQue(int a,int b,int *menorque); // Função 22 - Robert
-void potencia(int base,int expoente,long long int *resultado); // Função 6 - Robert
-void notAnd(int a,int b,int *notand); // Função 26 - Robert
-void notOr(int a,int b,int *notor); // Função 28 - Robert
-void fxor(int a, int b, int *r); // Função 10 - Paulo
-void fsoma(long long a, long long b, long long *r); // Função 14 - Paulo
-void fig(int a, int b, int *r); // Função 19 - Paulo
-void fand(int a, int b, int *r); // Função 25 - Paulo
-void maiorQue(int a, int b, int *maiorque); // Função 21 - Renato
+void limparTela(void);
+void abaA(void);
+void abaB(void);
+void abaC(void);
+void abaD(void);
 
-int main(){
+int main() {
+    
+    char selecionadordeabas='x';
 
+    while(selecionadordeabas!='0'){
+        
+        limparTela();
 
+        printf("===== MENU PRINCIPAL =====\n");
+        printf("A - Aba 1 (Operacoes 1 a 7)\n");
+        printf("B - Aba 2 (Operacoes 8 a 14)\n");
+        printf("C - Aba 3 (Operacoes 15 a 21)\n");
+        printf("D - Aba 4 (Operacoes 22 a 28)\n");
+        printf("0 - Encerrar o Programa\n");
+        printf("Escolha uma opcao: ");
+        
+        selecionadordeabas=getchar();
+        getchar();
 
-  
+        if(selecionadordeabas>='a'&&selecionadordeabas<='z'){selecionadordeabas-=32;}
+        
+        limparTela();
 
-  return 0;
-}
-
-
-void division(int a, int b, double *div) {
-    if (b == 0) div = NULL;
-    *div = a / b;
-}
-
-void maximum(int a, int b, int *max) {
-    if (a >= b) *max = a;
-    else *max = b;
-}
-
-void absolute(int x, int *abs) {
-    if (x < 0) *abs = -x;
-    else *abs = x;
-}
-
-void menorOuIgual(int a, int b, int *menorouigual) {
-    if (a <= b) *menorouigual = 1;
-    else *menorouigual = 0;
-} 
-
-void maiorQue(int a, int b, int *maiorque) {
-    if (a > b) *maiorque = 1;
-    else *maiorque = 0;
-}
-
-void menorQue(int a,int b,int *menorque){
-    *menorque=(a<b)? 1:0;
-}
-
-void potencia(int base,int expoente,long long int *resultado){
-*resultado=1;
-    for(int i=0;i<expoente;i++){
-        *resultado*=base;
+        switch(selecionadordeabas){
+            case 'A': abaA(); break;
+            case 'B': abaB(); break;
+            case 'C': abaC(); break;
+            case 'D': abaD(); break;
+            case '0': printf("Encerrando programa...\n"); break;
+            default: printf("Opcao invalida!\nPressione ENTER para continuar..."); getchar();
+        }
     }
+    return 0;
 }
 
-void notAnd(int a,int b,int *notand){
-    *notand=(a&&b)? 0:1;
+void abaA(void){
+    
+    char opc;
+
+    do{
+        limparTela();
+
+        printf("=== Aba A: Operacoes 1 a 7 ===\n");
+        printf("1 - Soma(+)\n2 - Subtracao(-)\n3 - Multiplicacao(*)\n4 - Divisao(/)\n5 - Resto(%%)\n6 - Potencia(~)\n7 - Fatoracao(!)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        opc=getchar();
+        getchar();
+
+        switch(opc){
+            case '1': printf("Executando Soma...\n"); break;
+            case '2': printf("Executando Subtracao...\n"); break;
+            case '3': printf("Executando Multiplicacao...\n"); break;
+            case '4': printf("Executando Divisao...\n"); break;
+            case '5': printf("Executando Resto...\n"); break;
+            case '6': printf("Executando Potencia...\n"); break;
+            case '7': printf("Executando Fatoracao...\n"); break;
+            case '0': break;
+            default: printf("Opcao invalida!\n"); break;
+        }
+        if(opc!='0'){printf("Pressione ENTER para continuar..."); getchar();}
+    }while(opc!='0');
 }
 
-void notOr(int a,int b,int *notor){
-    *notor=(a||b)? 0:1;
+void abaB(void){
+    
+    char opc;
+
+    do{
+        limparTela();
+
+        printf("=== Aba B: Operacoes 8 a 14 ===\n");
+        printf("8 - AND bit a bit(&)\n9 - OR bit a bit(|)\n10 - XOR bit a bit(^)\n11 - Shift a direita(>>)\n12 - Shift a esquerda(<<)\n13 - Media de dois numeros(M)\n14 - Somatorio de um intervalo(S)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        opc=getchar();
+        getchar();
+        
+        switch(opc){
+            case '8': printf("Executando AND bit a bit...\n"); break;
+            case '9': printf("Executando OR bit a bit...\n"); break;
+            case '1':{
+                
+                char digito=getchar(); getchar();
+
+                if(digito=='0') printf("Executando XOR bit a bit...\n");
+                else if(digito=='1') printf("Executando Shift a direita...\n");
+                else if(digito=='2') printf("Executando Shift a esquerda...\n");
+                else if(digito=='3') printf("Executando Media...\n");
+                else if(digito=='4') printf("Executando Somatorio...\n");
+                else printf("Opcao invalida!\n");
+                break;
+            }
+            case '0': break;
+            default: printf("Opcao invalida!\n"); break;
+        }
+        if(opc!='0'){printf("Pressione ENTER para continuar..."); getchar();}
+    }while(opc!='0');
 }
 
-void fxor(int a, int b, int *r) {
-    *r = a ^ b;
+void abaC(void){
+    char opc;
+    do{
+        limparTela();
+
+        printf("=== Aba C: Operacoes 15 a 21 ===\n");
+        printf("15 - Produtorio de um intervalo(P)\n16 - Minimo entre dois numeros(min)\n17 - Maximo entre dois numeros(max)\n18 - Valor absoluto de um numero(abs)\n19 - Igualdade(==)\n20 - Diferenca(!=)\n21 - Maior que(>)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        opc=getchar();
+        getchar();
+
+        switch(opc){
+            
+            case '1':{
+
+                char digito=getchar(); getchar();
+
+                if(digito=='5') printf("Executando Produtorio...\n");
+                else if(digito=='6') printf("Executando Minimo...\n");
+                else if(digito=='7') printf("Executando Maximo...\n");
+                else if(digito=='8') printf("Executando Valor absoluto...\n");
+                else if(digito=='9') printf("Executando Igualdade...\n");
+                else printf("Opcao invalida!\n");
+                break;
+            }
+            case '2':{
+                
+                char digito=getchar(); getchar();
+
+                if(digito=='0') printf("Executando Diferenca...\n");
+                else if(digito=='1') printf("Executando Maior que...\n");
+                else printf("Opcao invalida!\n");
+                break;
+            }
+            case '0': break;
+            default: printf("Opcao invalida!\n"); break;
+        }
+        if(opc!='0'){printf("Pressione ENTER para continuar..."); getchar();}
+    }while(opc!='0');
 }
 
-void fsoma(long long a, long long b, long long *r) {
-    if (a > b) {
-        long long t = a;
-        a = b;
-        b = t;
-    }
-    long long n = b - a + 1;
-    *r = (n * (a + b)) / 2;
+void abaD(void){
+    
+    char opc;
+
+    do{
+        limparTela();
+        printf("=== Aba D: Operacoes 22 a 28 ===\n");
+        printf("22 - Menor que(<)\n23 - Maior ou igual(>=)\n24 - Menor ou igual(<=)\n25 - AND(&&)\n26 - NAND(!&)\n27 - OR(||)\n28 - NOR(!|)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        opc=getchar();
+        getchar();
+
+        switch(opc){
+            case '2':{
+                
+                char digito=getchar(); getchar();
+                
+                if(digito=='2') printf("Executando Menor que...\n");
+                else if(digito=='3') printf("Executando Maior ou igual...\n");
+                else if(digito=='4') printf("Executando Menor ou igual...\n");
+                else if(digito=='5') printf("Executando AND...\n");
+                else if(digito=='6') printf("Executando NAND...\n");
+                else if(digito=='7') printf("Executando OR...\n");
+                else if(digito=='8') printf("Executando NOR...\n");
+                else printf("Opcao invalida!\n");
+                break;
+            }
+            case '0': break;
+            default: printf("Opcao invalida!\n"); break;
+        }
+        if(opc!='0'){printf("Pressione ENTER para continuar..."); getchar();}
+    }while(opc!='0');
 }
 
-void fig(int a, int b, int *r) {
-    *r = (a == b) ? 1 : 0;
+void limparTela(void){
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }
-
-void fand(int a, int b, int *r) {
-    int x = (a != 0);
-    int y = (b != 0);
-    *r = (x && y) ? 1 : 0;
-}
-
-void soma (int a, int b, int *r){
-    *r = a + b;
-}
-
-void shiftDireita(int a, int b, int *r) {
-    *r = a >> b;
-}
-
-void produtorio(int a, int b, long long int *r){
-    int n;
-    long long int produto;
-
-    produto = 1;
-
-    for (n = a; n <= b; n++){
-        produto *= n;
-    }
-
-    *r = produto;
-}
-
-void maiorIgual(int a, int b, int *maiorIgual) {
-    if (a >= b) *maiorIgual = 1;
-    else *maiorIgual = 0;
-} 
