@@ -1,13 +1,17 @@
 #include<stdio.h>
 
-void division(int a, int b, double *div);
-void maximum(int a, int b, int *max);
-void absolute(int x, int *abs);
-void menorOuIgual(int a, int b, int *menorouigual);
-void menorQue(int a,int b,int *menorque);
-void potencia(int base,int expoente,long long int *resultado);
-void notAnd(int a,int b,int *notand);
-void notOr(int a,int b,int *notor);
+void division(int a, int b, double *div); // Função 4 - Renato
+void maximum(int a, int b, int *max); // Função 17 - Renato
+void absolute(int x, int *abs); // Função 18 - Renato
+void menorOuIgual(int a, int b, int *menorouigual); // Função 24 - Renato
+void menorQue(int a,int b,int *menorque); // Função 22 - Robert
+void potencia(int base,int expoente,long long int *resultado); // Função 6 - Robert
+void notAnd(int a,int b,int *notand); // Função 26 - Robert
+void notOr(int a,int b,int *notor); // Função 28 - Robert
+void fxor(int a, int b, int *r); // Função 10 - Paulo
+void fsoma(long long a, long long b, long long *r); // Função 14 - Paulo
+void fig(int a, int b, int *r); // Função 19 - Paulo
+void fand(int a, int b, int *r); // Função 25 - Paulo
 
 int main(){
 
@@ -18,31 +22,6 @@ int main(){
   return 0;
 }
 
-void xor_bit(int a, int b, int *resultado) {
-    *resultado = a ^ b;
-}
-
-void somatorio_intervalo(int inicio, int fim, long long int *resultado) {
-    *resultado = 0;
-    int i;  
-    for (i = inicio; i <= fim; i++) {
-        *resultado += i;
-    }
-}
-
-void igualdade(int a, int b, int *resultado) {
-    if (a == b)
-        *resultado = 1;
-    else
-        *resultado = 0; 
-}
-
-void and_logico(int a, int b, int *resultado) {
-    if (a && b)
-        *resultado = 1;
-    else
-        *resultado = 0; 
-}
 
 void division(int a, int b, double *div) {
     if (b == 0) div = NULL;
@@ -81,4 +60,28 @@ void notAnd(int a,int b,int *notand){
 
 void notOr(int a,int b,int *notor){
     *notor=(a||b)? 0:1;
+}
+
+void fxor(int a, int b, int *r) {
+    *r = a ^ b;
+}
+
+void fsoma(long long a, long long b, long long *r) {
+    if (a > b) {
+        long long t = a;
+        a = b;
+        b = t;
+    }
+    long long n = b - a + 1;
+    *r = (n * (a + b)) / 2;
+}
+
+void fig(int a, int b, int *r) {
+    *r = (a == b) ? 1 : 0;
+}
+
+void fand(int a, int b, int *r) {
+    int x = (a != 0);
+    int y = (b != 0);
+    *r = (x && y) ? 1 : 0;
 }
