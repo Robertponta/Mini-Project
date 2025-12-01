@@ -13,6 +13,10 @@ void fsoma(long long a, long long b, long long *r); // Função 14 - Paulo
 void fig(int a, int b, int *r); // Função 19 - Paulo
 void fand(int a, int b, int *r); // Função 25 - Paulo
 void maiorQue(int a, int b, int *maiorque); // Função 21 - Renato
+void soma (int a, int b, int *r)
+void shiftDireita(int a, int b, int *r)
+void produtorio(int a, int b, long long int *r)
+void maiorIgual(int a, int b, int *maiorIgual)
 
 int main(){
 
