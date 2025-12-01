@@ -12,6 +12,7 @@ void fxor(int a, int b, int *r); // Função 10 - Paulo
 void fsoma(long long a, long long b, long long *r); // Função 14 - Paulo
 void fig(int a, int b, int *r); // Função 19 - Paulo
 void fand(int a, int b, int *r); // Função 25 - Paulo
+void maiorQue(int a, int b, int *maiorque); // Função 21 - Renato
 
 int main(){
 
@@ -42,6 +43,11 @@ void menorOuIgual(int a, int b, int *menorouigual) {
     if (a <= b) *menorouigual = 1;
     else *menorouigual = 0;
 } 
+
+void maiorQue(int a, int b, int *maiorque) {
+    if (a > b) *maiorque = 1;
+    else *maiorque = 0;
+}
 
 void menorQue(int a,int b,int *menorque){
     *menorque=(a<b)? 1:0;
