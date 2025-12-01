@@ -13,10 +13,14 @@ void fsoma(long long a, long long b, long long *r); // Função 14 - Paulo
 void fig(int a, int b, int *r); // Função 19 - Paulo
 void fand(int a, int b, int *r); // Função 25 - Paulo
 void maiorQue(int a, int b, int *maiorque); // Função 21 - Renato
-void soma (int a, int b, int *r)
-void shiftDireita(int a, int b, int *r)
-void produtorio(int a, int b, long long int *r)
-void maiorIgual(int a, int b, int *maiorIgual)
+void soma (int a, int b, int *r);
+void shiftDireita(int a, int b, int *r);
+void produtorio(int a, int b, long long int *r);
+void maiorIgual(int a, int b, int *maiorIgual);
+void multiplicacao(int a, int b, int *r); //funcao 3 - joao henrique 
+void resto(int a, int b, int *r); //funcao 5 - joao henrique
+void mindoisnumeros(int a, int b, int *min); //funcao 16 - joao henrique
+void diferente(int a, int b, int *v); //funcao 20 - joao henrique
 
 int main(){
 
@@ -121,3 +125,19 @@ void maiorIgual(int a, int b, int *maiorIgual) {
     if (a >= b) *maiorIgual = 1;
     else *maiorIgual = 0;
 } 
+
+void multiplicacao(int a, int b, int *r){
+    *r = a*b;
+}
+void resto(int a, int b, int *r){
+    *r = a % b;
+}
+void mindoisnumeros(int a, int b, int *min){
+    if(a < b) *min = a;
+    else *min = b;
+}
+
+void diferente(int a, int b, int *v){
+    if(a != b) *v = 1;
+    else *v = 0;
+}
