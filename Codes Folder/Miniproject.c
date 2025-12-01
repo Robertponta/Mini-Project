@@ -18,6 +18,31 @@ int main(){
   return 0;
 }
 
+void xor_bit(int a, int b, int *resultado) {
+    *resultado = a ^ b;
+}
+
+void somatorio_intervalo(int inicio, int fim, long long int *resultado) {
+    *resultado = 0;
+    int i;  
+    for (i = inicio; i <= fim; i++) {
+        *resultado += i;
+    }
+}
+
+void igualdade(int a, int b, int *resultado) {
+    if (a == b)
+        *resultado = 1;
+    else
+        *resultado = 0; 
+}
+
+void and_logico(int a, int b, int *resultado) {
+    if (a && b)
+        *resultado = 1;
+    else
+        *resultado = 0; 
+}
 
 void division(int a, int b, double *div) {
     if (b == 0) div = NULL;
