@@ -148,6 +148,11 @@ void diferente(int a, int b, int *v){
 void subtracao(int a, int b, int *r){
     *r = a - b;
 }
+
 void media2 (int a, int b, double *r){
     *r = (a + b) / 2;
+}
+
+void ANDbitabit(int a, int b, int *r){
+    *r = a & b;
 }
