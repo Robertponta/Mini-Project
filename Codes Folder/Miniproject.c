@@ -23,7 +23,7 @@ void mindoisnumeros(int a, int b, int *min); //funcao 16 - joao henrique
 void diferente(int a, int b, int *v); //funcao 20 - joao henrique
 void subtracao(int a, int b, int *r); //função 2 - Wender
 void media2 (int a, int b, double *r); //função 13 - Wender
-
+void ANDbitabit (int a, int b, int *r)// função 8 - Wender
 
 int main(){
 
