@@ -21,6 +21,9 @@ void multiplicacao(int a, int b, int *r); //funcao 3 - joao henrique
 void resto(int a, int b, int *r); //funcao 5 - joao henrique
 void mindoisnumeros(int a, int b, int *min); //funcao 16 - joao henrique
 void diferente(int a, int b, int *v); //funcao 20 - joao henrique
+void subtracao(int a, int b, int *r); //função 2 - Wender
+void media2 (int a, int b, double *r); //função 13 - Wender
+
 
 int main(){
 
@@ -140,4 +143,11 @@ void mindoisnumeros(int a, int b, int *min){
 void diferente(int a, int b, int *v){
     if(a != b) *v = 1;
     else *v = 0;
+}
+
+void subtracao(int a, int b, int *r){
+    *r = a - b;
+}
+void media2 (int a, int b, double *r){
+    *r = (a + b) / 2;
 }
