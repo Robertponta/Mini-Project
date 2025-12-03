@@ -23,7 +23,8 @@ void mindoisnumeros(int a, int b, int *min); //funcao 16 - joao henrique
 void diferente(int a, int b, int *v); //funcao 20 - joao henrique
 void subtracao(int a, int b, int *r); //função 2 - Wender
 void media2 (int a, int b, double *r); //função 13 - Wender
-void ANDbitabit (int a, int b, int *r)// função 8 - Wender
+void Andbitabit (int a, int b, int *r)// função 8 - Wender
+void fatorial (int a, int *r) // função 7 - Wender
 
 int main(){
 
@@ -153,6 +154,14 @@ void media2 (int a, int b, double *r){
     *r = (a + b) / 2;
 }
 
-void ANDbitabit(int a, int b, int *r){
+void Andbitabit(int a, int b, int *r){
     *r = a & b;
+}
+
+void fatorial (int a, int *r){
+    int i;
+    *r = 1;
+    for (i = 2; i <= a; i++){
+        *r *= i;
+    }
 }
