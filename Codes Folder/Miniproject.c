@@ -7,34 +7,34 @@ void abaB(void);
 void abaC(void);
 void abaD(void);
 
+void soma (int a, int b, int *r); // funcao 1 - daniel
+void subtracao(int a, int b, int *r); //função 2 - Wender
+void multiplicacao(int a, int b, int *r); //funcao 3 - joao henrique 
 void divisao(int a, int b, double *div); // Função 4 - Renato
+void resto(int a, int b, int *r); //funcao 5 - joao henrique
+void potencia(int base,int expoente,long long int *resultado); // Função 6 - Robert
+void fatorial (int a, long long int *r); // função 7 - Wender
+void and_bit_a_bit (int a, int b, int *r);// função 8 - Wender
+void or_bit_a_bit(int a,int b,int *resultado); // Função 9 - Robert
+void fxor(int a, int b, int *r); // Função 10 - Paulo
+void shift_a_direita(int a, int b, int *r); //Funcao 11 - daniel
+void shift_a_esquerda(int valor,int n,int *resultado); // Função 12 - Robert
+void media (int a, int b, double *r); //função 13 - Wender
+void somatorio(long long a, long long b, long long *r); // Função 14 - Paulo
+void produtorio(int a, int b, long long int *r); //funcao 15 -daniel
+void min_dois_numeros(int a, int b, int *min); //funcao 16 - joao henrique
 void maximo(int a, int b, int *max); // Função 17 - Renato
 void absoluto(int x, int *abs); // Função 18 - Renato
-void menor_ou_igual(int a, int b, int *menorouigual); // Função 24 - Renato
-void menor_que(int a,int b,int *menorque); // Função 22 - Robert
-void potencia(int base,int expoente,long long int *resultado); // Função 6 - Robert
-void notAnd(int a,int b,int *notand); // Função 26 - Robert
-void notOr(int a,int b,int *notor); // Função 28 - Robert
-void fxor(int a, int b, int *r); // Função 10 - Paulo
-void somatorio(long long a, long long b, long long *r); // Função 14 - Paulo
 void fig(int a, int b, int *r); // Função 19 - Paulo
-void fand(int a, int b, int *r); // Função 25 - Paulo
-void maior_que(int a, int b, int *maiorque); // Função 21 - Renato
-void soma (int a, int b, int *r);
-void shift_a_direita(int a, int b, int *r);
-void produtorio(int a, int b, long long int *r);
-void maiorIgual(int a, int b, int *maiorIgual);
-void multiplicacao(int a, int b, int *r); //funcao 3 - joao henrique 
-void resto(int a, int b, int *r); //funcao 5 - joao henrique
-void min_dois_numeros(int a, int b, int *min); //funcao 16 - joao henrique
 void diferente(int a, int b, int *v); //funcao 20 - joao henrique
-void subtracao(int a, int b, int *r); //função 2 - Wender
-void media (int a, int b, double *r); //função 13 - Wender
-void and_bit_a_bit (int a, int b, int *r);// função 8 - Wender
-void fatorial (int a, long long int *r); // função 7 - Wender
-void or_bit_a_bit(int a,int b,int *resultado); // Função 9 - Robert
-void shift_a_esquerda(int valor,int n,int *resultado); // Função 12 - Robert
+void maior_que(int a, int b, int *maiorque); // Função 21 - Renato
+void menor_que(int a,int b,int *menorque); // Função 22 - Robert
+void maiorIgual(int a, int b, int *maiorIgual); //funcao 23 - daniel
+void menor_ou_igual(int a, int b, int *menorouigual); // Função 24 - Renato
+void fand(int a, int b, int *r); // Função 25 - Paulo
+void notAnd(int a,int b,int *notand); // Função 26 - Robert
 void or_logico(int a,int b,int *flag); // Função 27 - Robert
+void notOr(int a,int b,int *notor); // Função 28 - Robert
 
 
 int main() {
