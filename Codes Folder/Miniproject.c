@@ -1,67 +1,605 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void division(int a, int b, double *div); // Função 4 - Renato
-void maximum(int a, int b, int *max); // Função 17 - Renato
-void absolute(int x, int *abs); // Função 18 - Renato
-void menorOuIgual(int a, int b, int *menorouigual); // Função 24 - Renato
-void menorQue(int a,int b,int *menorque); // Função 22 - Robert
+void limparTela(void);
+void abaA(void);
+void abaB(void);
+void abaC(void);
+void abaD(void);
+
+void divisao(int a, int b, double *div); // Função 4 - Renato
+void maximo(int a, int b, int *max); // Função 17 - Renato
+void absoluto(int x, int *abs); // Função 18 - Renato
+void menor_ou_igual(int a, int b, int *menorouigual); // Função 24 - Renato
+void menor_que(int a,int b,int *menorque); // Função 22 - Robert
 void potencia(int base,int expoente,long long int *resultado); // Função 6 - Robert
 void notAnd(int a,int b,int *notand); // Função 26 - Robert
 void notOr(int a,int b,int *notor); // Função 28 - Robert
 void fxor(int a, int b, int *r); // Função 10 - Paulo
-void fsoma(long long a, long long b, long long *r); // Função 14 - Paulo
+void somatorio(long long a, long long b, long long *r); // Função 14 - Paulo
 void fig(int a, int b, int *r); // Função 19 - Paulo
 void fand(int a, int b, int *r); // Função 25 - Paulo
-void maiorQue(int a, int b, int *maiorque); // Função 21 - Renato
+void maior_que(int a, int b, int *maiorque); // Função 21 - Renato
 void soma (int a, int b, int *r);
-void shiftDireita(int a, int b, int *r);
+void shift_a_direita(int a, int b, int *r);
 void produtorio(int a, int b, long long int *r);
 void maiorIgual(int a, int b, int *maiorIgual);
 void multiplicacao(int a, int b, int *r); //funcao 3 - joao henrique 
 void resto(int a, int b, int *r); //funcao 5 - joao henrique
-void mindoisnumeros(int a, int b, int *min); //funcao 16 - joao henrique
+void min_dois_numeros(int a, int b, int *min); //funcao 16 - joao henrique
 void diferente(int a, int b, int *v); //funcao 20 - joao henrique
 void subtracao(int a, int b, int *r); //função 2 - Wender
-void media2 (int a, int b, double *r); //função 13 - Wender
-void Andbitabit (int a, int b, int *r)// função 8 - Wender
-void fatorial (int a, int *r) // função 7 - Wender
+void media (int a, int b, double *r); //função 13 - Wender
+void and_bit_a_bit (int a, int b, int *r);// função 8 - Wender
+void fatorial (int a, long long int *r); // função 7 - Wender
+void or_bit_a_bit(int a,int b,int *resultado); // Função 9 - Robert
+void shift_a_esquerda(int valor,int n,int *resultado); // Função 12 - Robert
+void or_logico(int a,int b,int *flag); // Função 27 - Robert
 
-int main(){
 
+int main() {
+    
+    char selecionadordeabas='x';
 
+    while(selecionadordeabas!='0'){
+        
+        limparTela();
 
-  
+        printf("===== MENU PRINCIPAL =====\n");
+        printf("A - Aba 1 (Operacoes 1 a 7)\n");
+        printf("B - Aba 2 (Operacoes 8 a 14)\n");
+        printf("C - Aba 3 (Operacoes 15 a 21)\n");
+        printf("D - Aba 4 (Operacoes 22 a 28)\n");
+        printf("0 - Encerrar o Programa\n");
+        printf("Escolha uma opcao: ");
+        
+        selecionadordeabas=getchar();
+        getchar();
 
-  return 0;
+        if(selecionadordeabas>='a'&&selecionadordeabas<='z'){selecionadordeabas-=32;}
+        
+        limparTela();
+
+        switch(selecionadordeabas){
+            case 'A': abaA(); break;
+            case 'B': abaB(); break;
+            case 'C': abaC(); break;
+            case 'D': abaD(); break;
+            case '0': printf("Encerrando programa...\n"); break;
+            default: printf("Opcao invalida!\nPressione ENTER para continuar..."); getchar();
+        }
+    }
+    return 0;
+}
+
+void abaA(void){
+    
+    char opc;
+    int nlidos=999,n1,n2,flag,resultado;
+    long long int resultadolld;
+    double resultadodouble;
+
+    do{
+        printf("=== Aba A: Operacoes 1 a 7 ===\n");
+        printf("1 - Soma(+)\n2 - Subtracao(-)\n3 - Multiplicacao(*)\n4 - Divisao(/)\n5 - Resto(%%)\n6 - Potencia(~)\n7 - Fatoracao(!)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        opc=getchar();
+        getchar();
+
+        switch(opc){
+            case '1':printf("Executando soma: digite 2 numeros para somar\n"); while(nlidos!=2){
+            nlidos=scanf("%d%d",&n1,&n2);if(nlidos!=2){
+            printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");} else
+            {
+                soma(n1,n2,&resultado);
+                printf("Resultado: %d\n",resultado);
+            }
+            }
+            nlidos=999; break;
+            case '2': printf("Executando subtracao: digite 2 numeros para subtrair\n"); while(nlidos!=2){
+            nlidos=scanf("%d%d",&n1,&n2);if(nlidos!=2){
+            printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");} else
+            {
+                subtracao(n1,n2,&resultado);
+                printf("Resultado: %d\n",resultado);
+            }
+            }
+            nlidos=999; break;
+            case '3': printf("Executando multiplicacao: digite 2 numeros para multiplicar\n"); while(nlidos!=2){
+            nlidos=scanf("%d%d",&n1,&n2);if(nlidos!=2){
+            printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");} else
+            {
+                multiplicacao(n1,n2,&resultado);
+                printf("Resultado: %d\n",resultado);
+            }
+            }
+            nlidos=999; break;
+            case '4': printf("Executando divisao: digite 2 numeros para dividir\n"); while(nlidos!=2||n2==0){
+            nlidos=scanf("%d%d",&n1,&n2);if(nlidos!=2){
+            printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");} else if (n2==0)
+            {
+                printf("Nao Existe divisao por 0, insira os numeros novamente com o segundo sendo diferente de 0\n");
+            }
+             else
+            {
+                divisao(n1,n2,&resultadodouble);
+                printf("Resultado: %.3lf\n",resultadodouble);
+            }
+            }
+            nlidos=999; break;
+            case '5': printf("Executando resto da divisao: digite 2 numeros para dividir\n"); while(nlidos!=2){
+            nlidos=scanf("%d%d",&n1,&n2);if(nlidos!=2){
+            printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");} else
+            {
+                resto(n1,n2,&resultado);
+                printf("Resultado: %d\n",resultado);
+            }
+            }
+            nlidos=999; break;
+            case '6': printf("Executando potenciacao: digite 2 numeros (base e expoente)\n"); while(nlidos!=2){
+            nlidos=scanf("%d%d",&n1,&n2);if(nlidos!=2){
+            printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");} else
+            {
+                potencia(n1,n2,&resultadolld);
+                printf("Resultado: %lld\n",resultadolld);
+            }
+            }
+            nlidos=999; break;
+            case '7': printf("Executando fatorial: digite 1 numero para fatorar\n"); while(nlidos!=1){
+            nlidos=scanf("%d",&n1);if(nlidos!=1){
+            printf("Quantidade de numeros invalida, digite apenas 1 numero para essa operação\n");} else
+            {
+                fatorial(n1,&resultadolld);
+                printf("Resultado: %lld\n",resultadolld);
+            }
+            }
+            nlidos=999; break;
+            case '0': break;
+            default: printf("Opcao invalida!\n"); break;
+        }
+        
+        if(opc!='0'){printf("Pressione ENTER para continuar...\n"); getchar();getchar();
+        limparTela();}
+    }while(opc!='0');
+}
+
+void abaB(void){
+    
+    int nlidos=999,n1,n2, flag,resultado,opc;
+    long long int resultadolld;
+    double resultadodouble;
+
+    do{
+        limparTela();
+
+        printf("=== Aba B: Operacoes 8 a 14 ===\n");
+        printf("8 - AND bit a bit(&)\n9 - OR bit a bit(|)\n10 - XOR bit a bit(^)\n11 - Shift a direita(>>)\n12 - Shift a esquerda(<<)\n13 - Media de dois numeros(M)\n14 - Somatorio de um intervalo(S)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        scanf("%d",&opc);
+        getchar();
+        
+        switch(opc){
+            case 8: 
+                printf("Executando And Bit a Bit: digite 2 numeros para executar a operacao\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        and_bit_a_bit(n1,n2,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                }
+                nlidos=999; 
+                break;
+
+            case 9: 
+                printf("Executando OR Bit a Bit: digite 2 numeros para executar a operacao\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        or_bit_a_bit(n1,n2,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 10:
+                printf("Executando XOR Bit a Bit: digite 2 numeros para executar a operacao\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        fxor(n1,n2,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 11:
+                printf("Executando Shift a Direita: digite 2 numeros para executar a operacao\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        shift_a_direita(n1,n2,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 12:
+                printf("Executando Shift a Esquerda: digite 2 numeros para executar a operacao\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        shift_a_esquerda(n1,n2,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 13:
+                printf("Executando Media: digite 2 numeros para executar a operacao\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        media(n1,n2,&resultadodouble);
+                        printf("Resultado: %.3lf\n",resultadodouble);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 14:
+                printf("Executando Somatorio: digite 2 numeros (inicio e fim)\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        somatorio(n1,n2,&resultadolld);
+                        printf("Resultado: %lld\n",resultadolld);                    
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 0: 
+                break;
+
+            default: 
+                printf("Opcao invalida!\n");
+                break;
+        }
+
+        if(opc!=0){ 
+            printf("Pressione ENTER para continuar...\n"); 
+            getchar();getchar();
+            limparTela();
+        }
+    } while(opc!=0);
 }
 
 
-void division(int a, int b, double *div) {
-    if (b == 0) div = NULL;
-    *div = a / b;
+void abaC(void){
+    
+    int nlidos=999,n1,n2,flag,resultado,opc;
+    long long int resultadolld;
+    double resultadodouble;
+
+    do{
+        limparTela();
+
+        printf("=== Aba C: Operacoes 15 a 21 ===\n");
+        printf("15 - Produtorio de um intervalo(P)\n16 - Minimo entre dois numeros(min)\n17 - Maximo entre dois numeros(max)\n18 - Valor absoluto de um numero(abs)\n19 - Igualdade(==)\n20 - Diferenca(!=)\n21 - Maior que(>)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        scanf("%d",&opc);
+        getchar();
+
+        switch(opc){
+            case 15:
+                printf("Executando Produtorio: digite dois numeros (inicio e fim)\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        produtorio(n1,n2,&resultadolld);
+                        printf("Resultado: %lld\n",resultadolld);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 16:
+                printf("Executando Minimo: digite 2 numeros\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        min_dois_numeros(n1,n2,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 17:
+                printf("Executando Maximo: digite 2 numeros\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        maximo(n1,n2,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 18:
+                printf("Executando Valor absoluto: digite 1 numero\n"); 
+                while(nlidos!=1){
+                    nlidos=scanf("%d",&n1); 
+                    if(nlidos!=1){
+                        printf("Quantidade de numeros invalida, apenas 1 numero para essa operação\n");
+                    } else {
+                        absoluto(n1,&resultado);
+                        printf("Resultado: %d\n",resultado);
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 19:
+                printf("Executando Igualdade: digite 2 numeros\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        fig(n1,n2,&flag);
+                        printf("%s\n",flag?"SIM":"NAO");
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 20:
+                printf("Executando Diferenca: digite 2 numeros\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        diferente(n1,n2,&flag);
+                        printf("%s\n",flag?"SIM":"NAO");
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 21:
+                printf("Executando Maior que: digite 2 numeros\n"); 
+                while(nlidos!=2){
+                    nlidos=scanf("%d%d",&n1,&n2); 
+                    if(nlidos!=2){
+                        printf("Quantidade de numeros invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        maior_que(n1,n2,&flag);
+                        printf("%s\n",flag?"SIM":"NAO");
+                    }
+                } 
+                nlidos=999; 
+                break;
+
+            case 0: 
+                break;
+
+            default: 
+                printf("Opcao invalida!\n");
+                break;
+        }
+
+        if(opc!=0){ 
+            printf("Pressione ENTER para continuar...\n"); 
+            getchar();getchar();
+            limparTela();
+        }
+
+    } while(opc!=0);
 }
 
-void maximum(int a, int b, int *max) {
+
+
+void abaD(void){
+    int nlidos=999, n1, n2, flag, resultado, opc;
+    long long int resultadolld;
+
+    do{
+        limparTela();
+        printf("=== Aba D: Operacoes 22 a 28 ===\n");
+        printf("22 - Menor que(<)\n23 - Maior ou igual(>=)\n24 - Menor ou igual(<=)\n25 - AND(&&)\n26 - NAND(!&)\n27 - OR(||)\n28 - NOR(!|)\n0 - Voltar ao menu principal\nEscolha uma opcao: ");
+        
+        scanf("%d", &opc);
+        getchar();
+
+        switch(opc){
+            case 22:{
+                printf("Executando Menor que: digite 2 numeros\n");
+                while(nlidos != 2){
+                    nlidos = scanf("%d%d", &n1, &n2);
+                    if(nlidos != 2){
+                        printf("Quantidade invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        menor_que(n1, n2, &flag);
+                        printf("%s\n", flag ? "SIM" : "NAO");
+                    }
+                }
+                nlidos = 999;
+                break;
+            }
+
+            case 23:{
+                printf("Executando Maior ou igual: digite 2 numeros\n");
+                while(nlidos != 2){
+                    nlidos = scanf("%d%d", &n1, &n2);
+                    if(nlidos != 2){
+                        printf("Quantidade invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        maiorIgual(n1, n2, &flag);
+                        printf("%s\n", flag ? "SIM" : "NAO");
+                    }
+                }
+                nlidos = 999;
+                break;
+            }
+
+            case 24:{
+                printf("Executando Menor ou igual: digite 2 numeros\n");
+                while(nlidos != 2){
+                    nlidos = scanf("%d%d", &n1, &n2);
+                    if(nlidos != 2){
+                        printf("Quantidade invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        menor_ou_igual(n1, n2, &flag);
+                        printf("%s\n", flag ? "SIM" : "NAO");
+                    }
+                }
+                nlidos = 999;
+                break;
+            }
+
+            case 25:{
+                printf("Executando AND: digite 2 numeros\n");
+                while(nlidos != 2){
+                    nlidos = scanf("%d%d", &n1, &n2);
+                    if(nlidos != 2){
+                        printf("Quantidade invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        fand(n1, n2, &flag);
+                        printf("%s\n", flag ? "SIM" : "NAO");
+                    }
+                }
+                nlidos = 999;
+                break;
+            }
+
+            case 26:{
+                printf("Executando NAND: digite 2 numeros\n");
+                while(nlidos != 2){
+                    nlidos = scanf("%d%d", &n1, &n2);
+                    if(nlidos != 2){
+                        printf("Quantidade invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        notAnd(n1, n2, &flag);
+                        printf("%s\n", flag ? "SIM" : "NAO");
+                    }
+                }
+                nlidos = 999;
+                break;
+            }
+
+            case 27:{
+                printf("Executando OR: digite 2 numeros\n");
+                while(nlidos != 2){
+                    nlidos = scanf("%d%d", &n1, &n2);
+                    if(nlidos != 2){
+                        printf("Quantidade invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        or_logico(n1, n2, &flag);
+                        printf("%s\n", flag ? "SIM" : "NAO");
+                    }
+                }
+                nlidos = 999;
+                break;
+            }
+
+            case 28:{
+                printf("Executando NOR: digite 2 numeros\n");
+                while(nlidos != 2){
+                    nlidos = scanf("%d%d", &n1, &n2);
+                    if(nlidos != 2){
+                        printf("Quantidade invalida, digite 2 numeros para essa operação\n");
+                    } else {
+                        notOr(n1, n2, &flag);
+                        printf("%s\n", flag ? "SIM" : "NAO");
+                    }
+                }
+                nlidos = 999;
+                break;
+            }
+
+            case 0:
+                break;
+
+            default:
+                printf("Opcao invalida!\n");
+                break;
+        }
+
+        if(opc != 0){
+            printf("Pressione ENTER para continuar...\n");
+            getchar();getchar();
+            limparTela();
+        }
+    } while(opc != 0);
+}
+
+
+
+void limparTela(void){
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+void divisao(int a, int b, double *div) {
+    if (b == 0) {
+        *div = 0;
+        return;
+    }
+    *div = (double)a / (double)b;
+}
+
+void maximo(int a, int b, int *max) {
     if (a >= b) *max = a;
     else *max = b;
 }
 
-void absolute(int x, int *abs) {
+void absoluto(int x, int *abs) {
     if (x < 0) *abs = -x;
     else *abs = x;
 }
 
-void menorOuIgual(int a, int b, int *menorouigual) {
+void menor_ou_igual(int a, int b, int *menorouigual) {
     if (a <= b) *menorouigual = 1;
     else *menorouigual = 0;
 } 
 
-void maiorQue(int a, int b, int *maiorque) {
+void maior_que(int a, int b, int *maiorque) {
     if (a > b) *maiorque = 1;
     else *maiorque = 0;
 }
 
-void menorQue(int a,int b,int *menorque){
+void menor_que(int a,int b,int *menorque){
     *menorque=(a<b)? 1:0;
 }
 
@@ -84,7 +622,7 @@ void fxor(int a, int b, int *r) {
     *r = a ^ b;
 }
 
-void fsoma(long long a, long long b, long long *r) {
+void somatorio(long long a, long long b, long long *r) {
     if (a > b) {
         long long t = a;
         a = b;
@@ -108,7 +646,7 @@ void soma (int a, int b, int *r){
     *r = a + b;
 }
 
-void shiftDireita(int a, int b, int *r) {
+void shift_a_direita(int a, int b, int *r) {
     *r = a >> b;
 }
 
@@ -136,7 +674,7 @@ void multiplicacao(int a, int b, int *r){
 void resto(int a, int b, int *r){
     *r = a % b;
 }
-void mindoisnumeros(int a, int b, int *min){
+void min_dois_numeros(int a, int b, int *min){
     if(a < b) *min = a;
     else *min = b;
 }
@@ -150,18 +688,31 @@ void subtracao(int a, int b, int *r){
     *r = a - b;
 }
 
-void media2 (int a, int b, double *r){
-    *r = (a + b) / 2;
+void media(int a, int b, double *r){
+    *r = (a + b) / 2.0;
 }
 
-void Andbitabit(int a, int b, int *r){
+
+void and_bit_a_bit(int a, int b, int *r){
     *r = a & b;
 }
 
-void fatorial (int a, int *r){
+void fatorial (int a, long long int *r){
     int i;
     *r = 1;
     for (i = 2; i <= a; i++){
         *r *= i;
     }
+}
+
+void or_bit_a_bit(int a,int b,int *resultado) {
+    *resultado=a|b;   
+}
+
+void shift_a_esquerda(int valor,int n,int *resultado) {
+    *resultado=valor<<n;
+}
+
+void or_logico(int a,int b,int *flag) {
+    *flag=(a||b);   
 }
