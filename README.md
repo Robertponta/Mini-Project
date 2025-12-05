@@ -100,3 +100,5 @@ Toda a lógica fica dentro das funções.
 🧾 Código fonte Miniproject.c
 
 📄 README.md
+
+Link do Projeto no Github: https://github.com/Robertponta/Mini-Project/tree/main/Codes%20Folder
